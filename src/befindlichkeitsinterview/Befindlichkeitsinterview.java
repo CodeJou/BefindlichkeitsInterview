@@ -43,6 +43,11 @@ public class Befindlichkeitsinterview {
 		//(3) Antwort via Scanner ermöglichen
 		int antwort_3 = scanner.nextInt();
 		
+		//(3) Wenn Eingabe kleiner als 1 und größer als 10 ist, kommt while-schleife
+		while (antwort_3<1|antwort_3>10)
+		{ System.out.println("Meldung: Bitte gib eine ganze Zahl von 1 bis 10 ein!");
+		  antwort_3 = scanner.nextInt();}
+		
 		//Enter aufräumen
 		scanner.nextLine();
 		
@@ -73,10 +78,15 @@ public class Befindlichkeitsinterview {
 		//(4) Antwort via Scanner ermöglichen
 		int antwort_4 = scanner.nextInt();
 		
+		//(4) Wenn Eingabe kleiner als 1 oder größer als 10 ist, kommt eine while-schleife
+		while (antwort_4<1|antwort_4>10)
+		{ System.out.println("Meldung: Bitte gib eine ganze Zahl von 1 bis 10 an!");
+		  antwort_4 = scanner.nextInt();}
+		
 		//Enter aufräumen
 		scanner.nextLine();
 		
-		//Danke
+		//(4) Danke
 		System.out.println("notiert!");
 		
 		//(4)Fakt zur Stimmung
