@@ -8,7 +8,7 @@ public class Befindlichkeitsinterview {
 		// Hier startet das Interview zur Feststellung des Befindens
 		
 		//(1) Frage nach dem Namen
-		System.out.println("Hey, mein Name ist Lou. Wie heißt?");
+		System.out.println("Hey, mein Name ist Lou. Wie heißt du?");
 		
 		//(1) Antwort via Scanner ermöglichen
 		Scanner scanner = new Scanner(System.in);
@@ -129,10 +129,19 @@ public class Befindlichkeitsinterview {
 		{ System.out.println("Gut, dann kommen wir direkt zur Frage.");}
 		
 		//(5)Frage zum Anspannungslevel
-		System.out.println("Wie schätzt du gerade deine Anspannung ein? (Verwende eine Prozentzahl zwischen 0 (ohne Anspannung) bis 100% (extreme Anspannung)");
+		System.out.println("Wie schätzt du gerade deine Anspannung ein? (Verwende eine Zahl von 1 (ohne Anspannung) bis 100 (extreme Anspannung) ohne Prozentzeichen.");
 		
 		//(5)Antwort via Scanner ermöglichen
-		String antwort_5 = scanner.nextLine();
+		int antwort_5 = scanner.nextInt();
+		
+		//(5)Falls die Eingabe nicht im Bereich von 1 bis 100 angegeben wurde kommt eine while-schleife
+		while (antwort_5<1|antwort_5>100)
+		{ System.out.println("Meldung: Bitte gib eine ganze Zahl von 1 bis 100!");
+		  antwort_5 = scanner.nextInt();
+		}
+		
+		//Enter aufräumen
+		scanner.nextLine();
 		
 		//(5)Danke
 		System.out.println("Danke für deine Offenheit :-).");
