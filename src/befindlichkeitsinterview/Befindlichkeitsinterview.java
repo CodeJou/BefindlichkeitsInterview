@@ -30,7 +30,7 @@ public class Befindlichkeitsinterview {
 		String antwort_2 = scanner.nextLine();
 		
 		//(2) If else Abfrage
-		if (antwort_2.equals("ja"))
+		if (antwort_2.equalsIgnoreCase("ja"))
 		{ System.out.println("Super, dann pack ich Notitzheft und Kugelschreiber auf den Tisch!"); }
 		else
 		{ System.out.println("Na gut, dann ein anderes mal :-).");
@@ -53,7 +53,7 @@ public class Befindlichkeitsinterview {
 		String antwort_fakt = scanner.nextLine();
 		
 		//(3) If else Anweisung
-		if (antwort_fakt.equals("ja"))
+		if (antwort_fakt.equalsIgnoreCase("ja"))
 		{ System.out.println("Fakt : Schon eine Nacht mit zu wenig Schlaf kann die Gedächnisleistung verschlechtern.");
 		  System.out.println("Die gute Nachricht: Eine anschließende Nacht mit qualitativ hochwertigem Schlaf, ");
 	      System.out.println("kann einen Teil dieser Einbußen wieder ausgleichen.");
@@ -80,7 +80,7 @@ public class Befindlichkeitsinterview {
 		String antwort_fakt_2 = scanner.nextLine();
 		
 		//(4) If else Anweisung
-		if (antwort_fakt_2.equals("ja"))
+		if (antwort_fakt_2.equalsIgnoreCase("ja"))
 		{ System.out.println("Fakt : Lächeln ist nicht nur ein Ausdruck von Freude - es kann auch ein Werkzeug sein, um die eigene ");
 		  System.out.println("Stimmung ein wenig anzuheben. (Wir sollten alle viel mehr für uns selbst Lächeln, ist meine Meinung)");
 		  System.out.println("Quelle : Coles, Larsen & Lech (2019), A meta-analysis of the facial feedback literature, veröffentlicht in Psychological Bulletin.");
@@ -97,7 +97,7 @@ public class Befindlichkeitsinterview {
 		String antwort_erklärung = scanner.nextLine();
 		
 		//(5) if else Anweisung
-		if  (antwort_erklärung.equals("ja"))
+		if  (antwort_erklärung.equalsIgnoreCase("ja"))
 		{ System.out.println("Erklärung: Als Instrument verwenden wir die Anspannungskurve. Diese findet in der DBT (Dialektisch Behaviorale Therapie) Anwendung.");
 		  System.out.println("Anspannung bezeichnet hier den allgemeinen Erregungszustand einer Person");
 		  System.out.println("Die Einschätzung deiner Anspannung kann zwischen 0 und 100% liegen");
@@ -133,7 +133,7 @@ public class Befindlichkeitsinterview {
 		String antwort_skills = scanner.nextLine();
 		
 		//(6)if else Anweisung
-		if (antwort_skills.equals("ja"))
+		if (antwort_skills.equalsIgnoreCase("ja"))
 		{ System.out.println("");
 		  System.out.println("Okey, hier eine Übersicht zum Thema:");
 		  System.out.println("");
@@ -183,7 +183,7 @@ public class Befindlichkeitsinterview {
 		String antwort_7 = scanner.nextLine();
 		
 		//(7)if else anweisung
-		if (antwort_7.equals("ja"))
+		if (antwort_7.equalsIgnoreCase("ja"))
 		{ System.out.println("");
 		  System.out.println("Auflistung der abgefragten Parameter");
 		  System.out.println("---------------------------------------------------------------------------------------------------------");
