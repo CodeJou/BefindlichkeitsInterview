@@ -41,7 +41,10 @@ public class Befindlichkeitsinterview {
 		System.out.println(name+", auf einer Skala von 1 (sehr schlecht) bis 10 (sehr gut): Wie hast du die letzte Nacht geschlafen? (Nenne mir die passende Zahl) ");
 		
 		//(3) Antwort via Scanner ermöglichen
-		String antwort_3 = scanner.nextLine();
+		int antwort_3 = scanner.nextInt();
+		
+		//Enter aufräumen
+		scanner.nextLine();
 		
 		//(3) Danke
 		System.out.println("Danke für deine Eingabe.");
@@ -67,8 +70,11 @@ public class Befindlichkeitsinterview {
 		System.out.println("Okey "+name+" machen wir weiter mit der nächsten Frage.");
 		System.out.println("Wie ist deine Stimmung gerade auf einer Skala von 1 (sehr schlecht) bis 10 (sehr gut)? (Nenn mir die passende Zahl)");
 		
-		//Antwort via Scanner ermöglichen
-		String antwort_4 = scanner.nextLine();
+		//(4) Antwort via Scanner ermöglichen
+		int antwort_4 = scanner.nextInt();
+		
+		//Enter aufräumen
+		scanner.nextLine();
 		
 		//Danke
 		System.out.println("notiert!");
