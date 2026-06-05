@@ -129,20 +129,30 @@ public class Befindlichkeitsinterview {
 		{ System.out.println("Gut, dann kommen wir direkt zur Frage.");}
 		
 		//(5)Frage zum Anspannungslevel
-		System.out.println("Wie schätzt du gerade deine Anspannung ein? (Verwende eine Zahl von 1 (ohne Anspannung) bis 100 (extreme Anspannung) ohne Prozentzeichen.");
+		System.out.println("Wie schätzt du gerade deine Anspannung ein? (Verwende eine Zahl von 1 (ohne Anspannung) bis 100 (extreme Anspannung)");
 		
 		//(5)Antwort via Scanner ermöglichen
-		int antwort_5 = scanner.nextInt();
+		String antwort_5 = scanner.nextLine();
+		
+		//(5)Falls ein % Zeichen enthalten ist, entfernen
+		if (antwort_5.contains("%"))
+		{ antwort_5 = antwort_5.replace("%", "");
+		  antwort_5 = antwort_5.toUpperCase();}
+		
+		//(5)Datentyp String in Integer umwandeln
+		int antwort_anspannung = Integer.parseInt(antwort_5);
 		
 		//(5)Falls die Eingabe nicht im Bereich von 1 bis 100 angegeben wurde kommt eine while-schleife
-		while (antwort_5<1|antwort_5>100)
-		{ System.out.println("Meldung: Bitte gib eine ganze Zahl von 1 bis 100!");
-		  antwort_5 = scanner.nextInt();
-		}
+		while (antwort_anspannung<1|antwort_anspannung>100)
+		{ System.out.println("Meldung: Bitte gib eine ganze Zahl von 1 bis 100 an!");
+		  antwort_5 = scanner.nextLine();
+	       
+		  if (antwort_5.contains("%"))
+		      { antwort_5 = antwort_5.replace("%", "");
+		        antwort_5 = antwort_5.toUpperCase();}
 		
-		//Enter aufräumen
-		scanner.nextLine();
-		
+		 antwort_anspannung = Integer.parseInt(antwort_5);}
+				
 		//(5)Danke
 		System.out.println("Danke für deine Offenheit :-).");
 		
@@ -200,6 +210,7 @@ public class Befindlichkeitsinterview {
 		  System.out.println("");}
 		else
 		{ System.out.println("Na gut, du bist bestimmt schon gespannt auf die kleine Auflistung am Ende des Dialogs...");}
+		
 		
 		//(7)Frage bevor Auflistung kommt
 		System.out.println("Möchtest du die Liste sehen? (Eingabe ja oder nein)");
