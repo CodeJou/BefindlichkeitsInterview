@@ -29,6 +29,12 @@ public class Befindlichkeitsinterview {
 		//(2) Antwort via Scanner ermöglichen
 		String antwort_2 = scanner.nextLine();
 		
+		//(2) Eingabe überprüfen ob JA/Nein eingegeben wurde (Erneutes Fragen, falls eine andere Eingabe getätigt wurde)
+		while (!antwort_2.equalsIgnoreCase("ja")&&!antwort_2.equalsIgnoreCase("nein"))
+		{ System.out.println("Meldung: Es sind nur Ja/Nein Aussagen gestattet!");
+		  antwort_2 = scanner.nextLine();
+		  antwort_2 = antwort_2.toUpperCase();}
+		
 		//(2) If else Abfrage
 		if (antwort_2.equalsIgnoreCase("ja"))
 		{ System.out.println("Super, dann pack ich Notitzheft und Kugelschreiber auf den Tisch!"); }
@@ -43,7 +49,7 @@ public class Befindlichkeitsinterview {
 		//(3) Antwort via Scanner ermöglichen
 		int antwort_3 = scanner.nextInt();
 		
-		//(3) Wenn Eingabe kleiner als 1 und größer als 10 ist, kommt while-schleife
+		//(3) Eingabe prüfen ob Zahl von 1 bis 10 eingegeben wurde
 		while (antwort_3<1|antwort_3>10)
 		{ System.out.println("Meldung: Bitte gib eine ganze Zahl von 1 bis 10 ein!");
 		  antwort_3 = scanner.nextInt();}
@@ -60,7 +66,13 @@ public class Befindlichkeitsinterview {
 		//(3) Antwort via Scanner ermöglichen
 		String antwort_fakt = scanner.nextLine();
 		
-		//(3) If else Anweisung
+		//(3) Eingabe prüfen ob JA/NEIN eingegeben wurde
+		while (!antwort_fakt.equalsIgnoreCase("ja")&&!antwort_fakt.equalsIgnoreCase("nein"))
+		{ System.out.println("Meldung: Es sind nur Ja/Nein Aussagen gestattet!");
+		  antwort_fakt = scanner.nextLine();
+		  antwort_fakt = antwort_fakt.toUpperCase();}
+			
+		//(3) If else anweisung
 		if (antwort_fakt.equalsIgnoreCase("ja"))
 		{ System.out.println("Fakt : Schon eine Nacht mit zu wenig Schlaf kann die Gedächnisleistung verschlechtern.");
 		  System.out.println("Die gute Nachricht: Eine anschließende Nacht mit qualitativ hochwertigem Schlaf, ");
@@ -68,10 +80,10 @@ public class Befindlichkeitsinterview {
 	      System.out.println("Quellenangabe Baena et al. (2020): Weakly encoded momories due to acute sleep restriction (...), veröffentlicht in Scientific Reports.");
 	      System.out.println("");}
 		else 
-		{ System.out.println("Dann ein anderes mal :-).");}
-		
-		
-		//(4) Frage zur Stimmung
+		  { System.out.println("Kein Fakt erwünscht! verstehe :-).");}
+		    
+		    
+		  //(4) Frage zur Stimmung
 		System.out.println("Okey "+name+" machen wir weiter mit der nächsten Frage.");
 		System.out.println("Wie ist deine Stimmung gerade auf einer Skala von 1 (sehr schlecht) bis 10 (sehr gut)? (Nenn mir die passende Zahl)");
 		
@@ -95,6 +107,12 @@ public class Befindlichkeitsinterview {
 		//(4)Antwort via Scanner ermöglichen
 		String antwort_fakt_2 = scanner.nextLine();
 		
+		//(4)Eingabe prüfen ob JA/NEIN eingegeben wurde
+		while (!antwort_fakt_2.equalsIgnoreCase("ja")&&!antwort_fakt_2.equalsIgnoreCase("nein"))
+		{ System.out.println("Meldung: es sind nur Ja/Nein Aussagen gestattet!");
+		  antwort_fakt_2 = scanner.nextLine();
+		  antwort_fakt_2 = antwort_fakt_2.toUpperCase();}
+		
 		//(4) If else Anweisung
 		if (antwort_fakt_2.equalsIgnoreCase("ja"))
 		{ System.out.println("Fakt : Lächeln ist nicht nur ein Ausdruck von Freude - es kann auch ein Werkzeug sein, um die eigene ");
@@ -111,6 +129,12 @@ public class Befindlichkeitsinterview {
 		
 		//(5)Antwort via Scanner ermöglichen
 		String antwort_erklärung = scanner.nextLine();
+		
+		//(5)Eingabe prüfen ob JA/NEIN eingegeben wurde
+		while (!antwort_erklärung.equalsIgnoreCase("ja")&&!antwort_erklärung.equalsIgnoreCase("nein"))
+		{ System.out.println("Mitteilung: Es sind nur Ja/Nein Aussagen gestattet!");
+		  antwort_erklärung = scanner.nextLine();
+		  antwort_erklärung = antwort_erklärung.toUpperCase();}
 		
 		//(5) if else Anweisung
 		if  (antwort_erklärung.equalsIgnoreCase("ja"))
@@ -167,6 +191,12 @@ public class Befindlichkeitsinterview {
 		//(6)Antwort via Scanner ermöglichen
 		String antwort_skills = scanner.nextLine();
 		
+		//(6)Eingabe prüfen ob JA/NEIN eingegeben wurde
+		while (!antwort_skills.equalsIgnoreCase("ja")&&!antwort_skills.equalsIgnoreCase("nein"))
+		{ System.out.println("Meldung: Es sind nur Ja/Nein Aussagen gestattet!");
+		  antwort_skills = scanner.nextLine();
+		  antwort_skills = antwort_skills.toUpperCase();}
+		
 		//(6)if else Anweisung
 		if (antwort_skills.equalsIgnoreCase("ja"))
 		{ System.out.println("");
@@ -217,6 +247,12 @@ public class Befindlichkeitsinterview {
 		
 		//(7)Antwort via Scanner ermöglichen
 		String antwort_7 = scanner.nextLine();
+		
+		//(7)Eingabe prüfen auf JA/NEIN
+		while (!antwort_7.equalsIgnoreCase("ja")&&!antwort_7.equalsIgnoreCase("nein"))
+		{ System.out.println("Meldung: Es sind nur Ja/Nein Aussagen gestattet!");
+		  antwort_7 = scanner.nextLine();
+		  antwort_7 = antwort_7.toUpperCase();}
 		
 		//(7)if else anweisung
 		if (antwort_7.equalsIgnoreCase("ja"))
