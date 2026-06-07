@@ -52,18 +52,28 @@ public class Befindlichkeitsinterview {
 		//(3) Frage Schlafquallität
 		System.out.println(name+", auf einer Skala von 1 (sehr schlecht) bis 10 (sehr gut): Wie hast du die letzte Nacht geschlafen? (Nenne mir die passende Zahl) ");
 		
-		//(3) Antwort via Scanner ermöglichen
-		int antwort_3 = scanner.nextInt();
+		//(3)Try/catch falls Benutzer keine Zahl eingibt + while Schleife, falls die eingegebene Zahl <1 oder >10 ist
+		int antwort_3;//Zuvor deklarieren 
 		
-		//(3) Eingabe prüfen ob Zahl von 1 bis 10 eingegeben wurde
-		while (antwort_3<1|antwort_3>10)
+		try { antwort_3 = scanner.nextInt(); 
+		while (antwort_3<1|antwort_3>10)//Wenn Zahl <1 oder >10 ist
 		{ System.out.println("");
 		  System.out.println("[ Meldung: Bitte gib eine ganze Zahl von 1 bis 10 ein! ]");
-		  antwort_3 = scanner.nextInt();}
+		   antwort_3 = scanner.nextInt();
+		  }}
 		
-		//Enter aufräumen
+		catch (java.util.InputMismatchException exception)//Wenn keine Zahl eingegeben wurde
+		{ System.out.println("");
+		  System.out.println("[ Meldung: Bitte gib einen Zahlenwert an! ]");
+		  scanner.nextLine();//Enter aufräumen, da fehlerhafte Eingabe noch im Scanner liegt
+		  antwort_3 = scanner.nextInt();
+		  while (antwort_3<1|antwort_3>10)//Wenn Zahl <1 oder >10 ist
+		  { System.out.println("[ Meldung: Bitte gib eine Zahl von 1 bis 10 ein! ]");
+		    antwort_3 = scanner.nextInt(); }}
+		
+		//(3) Scanner leeren
 		scanner.nextLine();
-		
+	
 		//(3) Danke
 		System.out.println("");
 		System.out.println("Danke für deine Eingabe.");
@@ -102,16 +112,26 @@ public class Befindlichkeitsinterview {
 		System.out.println("Okey "+name+" machen wir weiter mit der nächsten Frage.");
 		System.out.println("Wie ist deine Stimmung gerade auf einer Skala von 1 (sehr schlecht) bis 10 (sehr gut)? (Nenn mir die passende Zahl)");
 		
-		//(4) Antwort via Scanner ermöglichen
-		int antwort_4 = scanner.nextInt();
+		//(4) Try/catch falls Benutzer keine Zahl eingibt + while Schleife, falls die eingegebene Zahl <1 oder >10 ist 
+		int antwort_4;//Variable zuvor deklarieren
 		
-		//(4) Wenn Eingabe kleiner als 1 oder größer als 10 ist, kommt eine while-schleife
-		while (antwort_4<1|antwort_4>10)
-		{ System.out.println("");
-		  System.out.println("[ Meldung: Bitte gib eine ganze Zahl von 1 bis 10 an! ]");
-		  antwort_4 = scanner.nextInt();}
+		try {antwort_4 = scanner.nextInt();
+		while (antwort_4<1|antwort_4>10)//Wenn Zahl <1 oder >10 ist
+		{System.out.println("");
+		 System.out.println("[ Meldung: Bitte gib eine ganze Zahl von 1 bis 10 an! ]");
+		 antwort_4 = scanner.nextInt();}}
 		
-		//Enter aufräumen
+		catch (java.util.InputMismatchException exeption_4)//Wenn Eingabe keine Zahl ist
+		{System.out.println("");
+		 System.out.println("[ Meldung: Bitte gib eine Zahl ein! ]");
+		scanner.nextLine();//Scanner leeren, da sich fehlerhafte Eingabe noch im Scanner befindet
+		antwort_4 = scanner.nextInt();
+		while (antwort_4<1|antwort_4>10)//Wenn Zahl <1 oder >10 ist
+		{System.out.println("");
+		 System.out.println("[ Meldung: Bitte gib eine Zahl von 1 bis 10 an! ]");
+		 antwort_4 = scanner.nextInt();}}
+		
+		//(4) Enter leeren
 		scanner.nextLine();
 		
 		//(4) Danke
@@ -128,7 +148,6 @@ public class Befindlichkeitsinterview {
 		while (!antwort_fakt_2.equalsIgnoreCase("ja")&&!antwort_fakt_2.equalsIgnoreCase("nein"))
 		{ System.out.println("");
 		  System.out.println("[ Meldung: es sind nur Ja/Nein Aussagen gestattet! ]");
-		  System.out.println("");
 		  antwort_fakt_2 = scanner.nextLine();
 		  antwort_fakt_2 = antwort_fakt_2.toUpperCase();}
 		
@@ -185,28 +204,49 @@ public class Befindlichkeitsinterview {
 		//(5)Frage zum Anspannungslevel
 		System.out.println("Wie schätzt du gerade deine Anspannung ein? (Verwende eine Zahl von 1 (ohne Anspannung) bis 100 (extreme Anspannung)");
 		
-		//(5)Antwort via Scanner ermöglichen
-		String antwort_5 = scanner.nextLine();
+		//(5) Try/Catch Falls keine Zahl eingegeben ist oder ein Leerzeichen zwischen Zahl und Prozentzeichen eingegeben ist
+		String antwort_5;//Variable zuerst deklarieren (Variablen die in {} gesetzt sind, werden vom Programm später nicht erkannt
 		
-		//(5)Falls ein % Zeichen enthalten ist, entfernen
-		if (antwort_5.contains("%"))
+		try { antwort_5 = scanner.nextLine();
+		if (antwort_5.contains("%"))//Falls ein % Zeichen enthalten ist, entfernen
 		{ antwort_5 = antwort_5.replace("%", "");
 		  antwort_5 = antwort_5.toUpperCase();}
 		
-		//(5)Datentyp String in Integer umwandeln
-		int antwort_anspannung = Integer.parseInt(antwort_5);
-		
-		//(5)Falls die Eingabe nicht im Bereich von 1 bis 100 angegeben wurde kommt eine while-schleife
-		while (antwort_anspannung<1|antwort_anspannung>100)
+		  int antwort_anspannung = Integer.parseInt(antwort_5);//Datentyp String in Integer umwandeln
+		  
+		  while (antwort_anspannung<1|antwort_anspannung>100)//Falls die Eingabe nicht im Bereich von 1 bis 100 angegeben wurde kommt eine while-schleife
 		{ System.out.println("");
 		  System.out.println("[ Meldung: Bitte gib eine ganze Zahl von 1 bis 100 an! ]");
 		  antwort_5 = scanner.nextLine();
 	       
-		  if (antwort_5.contains("%"))
-		      { antwort_5 = antwort_5.replace("%", "");
-		        antwort_5 = antwort_5.toUpperCase();}
+		  if (antwort_5.contains("%"))//Falls Prozentzeichen enthalten ist
+		   { antwort_5 = antwort_5.replace("%", "");
+		     antwort_5 = antwort_5.toUpperCase();}
 		
-		 antwort_anspannung = Integer.parseInt(antwort_5);}
+		 antwort_anspannung = Integer.parseInt(antwort_5);}}//Datentyp String in Integer umwandeln
+		
+		catch (java.lang.NumberFormatException exception_5)//Falls keine Zahl eingegeben wurde oder ein Leerzeichen zwischen Zahl und Prozentzeichen angegeben ist
+		{ System.out.println("");
+		  System.out.println("[ Meldung: Bitte gib eine Zahl ein! ]");
+		  System.out.println("[ Meldung: Gib deinen Wert bitte ohne Leerzeichen an! ]");
+		  antwort_5 = scanner.nextLine();
+		 
+		  if (antwort_5.contains("%"))//Falls ein % Zeichen enthalten ist, entfernen
+			{ antwort_5 = antwort_5.replace("%", "");
+			  antwort_5 = antwort_5.toUpperCase();}
+			
+	      int antwort_anspannung = Integer.parseInt(antwort_5);//Datentyp String in Integer umwandeln
+			  
+		  while (antwort_anspannung<1|antwort_anspannung>100)//Falls die Eingabe nicht im Bereich von 1 bis 100 angegeben wurde kommt eine while-schleife
+		{ System.out.println("");
+		  System.out.println("[ Meldung: Bitte gib eine ganze Zahl von 1 bis 100 an! ]");
+		  antwort_5 = scanner.nextLine();
+		       
+		  if (antwort_5.contains("%"))
+		 { antwort_5 = antwort_5.replace("%", "");
+		   antwort_5 = antwort_5.toUpperCase();}
+			
+		antwort_anspannung = Integer.parseInt(antwort_5);}}
 				
 		//(5)Danke
 		System.out.println("");
@@ -287,7 +327,7 @@ public class Befindlichkeitsinterview {
 	      System.out.println("");
 	      System.out.println("    [ Wichtig ]");
 	      System.out.println("");
-	      System.out.println("    Die genannten Vorschläge und INformationen ersetzen keine ärztliche oder therapeutische Behandlung.");
+	      System.out.println("    Die genannten Vorschläge und Informationen ersetzen keine ärztliche oder therapeutische Behandlung.");
 	      System.out.println("");
           System.out.println("Quelle DBT Manual zum Skillstraining/Modul Stresstoleranz nach: Bohus/Wolf-Arehult: Interaktives Skilltraining/Schauer Verlag 2009/2013");
 		  System.out.println("");
@@ -336,10 +376,10 @@ public class Befindlichkeitsinterview {
 		  System.out.println("");
 		  System.out.println("                                      [ MEINE INFOS ]");
 		  System.out.println("");
-		  System.out.println("                                      Fakt zur Schlafqualität erhalten        :"     +antwort_fakt);
-		  System.out.println("                                      Fakt zur Stimmung erhalten              :"     +antwort_fakt_2);
-		  System.out.println("                                      Erklärung zur Anspannungskurve erhalten :"     +antwort_erklärung);
-		  System.out.println("                                      Infos zu Skills/DBT erhalten            :"     +antwort_skills);
+		  System.out.println("                                      Fakt zur Schlafqualität erhalten        : "     +antwort_fakt);
+		  System.out.println("                                      Fakt zur Stimmung erhalten              : "     +antwort_fakt_2);
+		  System.out.println("                                      Erklärung zur Anspannungskurve erhalten : "     +antwort_erklärung);
+		  System.out.println("                                      Infos zu Skills/DBT erhalten            : "     +antwort_skills);
 		  System.out.println("");
 		  System.out.println("");
 		  System.out.println("________________________________________________________________________________________________________________________________________");
