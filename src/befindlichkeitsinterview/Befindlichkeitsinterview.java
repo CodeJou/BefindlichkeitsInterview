@@ -206,13 +206,14 @@ public class Befindlichkeitsinterview {
 		
 		//(5) Try/Catch Falls keine Zahl eingegeben ist oder ein Leerzeichen zwischen Zahl und Prozentzeichen eingegeben ist
 		String antwort_5;//Variable zuerst deklarieren (Variablen die in {} gesetzt sind, werden vom Programm später nicht erkannt
+		int antwort_anspannung;
 		
 		try { antwort_5 = scanner.nextLine();
 		if (antwort_5.contains("%"))//Falls ein % Zeichen enthalten ist, entfernen
 		{ antwort_5 = antwort_5.replace("%", "");
 		  antwort_5 = antwort_5.toUpperCase();}
 		
-		  int antwort_anspannung = Integer.parseInt(antwort_5);//Datentyp String in Integer umwandeln
+		  antwort_anspannung = Integer.parseInt(antwort_5);//Datentyp String in Integer umwandeln
 		  
 		  while (antwort_anspannung<1|antwort_anspannung>100)//Falls die Eingabe nicht im Bereich von 1 bis 100 angegeben wurde kommt eine while-schleife
 		{ System.out.println("");
@@ -223,7 +224,7 @@ public class Befindlichkeitsinterview {
 		   { antwort_5 = antwort_5.replace("%", "");
 		     antwort_5 = antwort_5.toUpperCase();}
 		
-		 antwort_anspannung = Integer.parseInt(antwort_5);}}//Datentyp String in Integer umwandeln
+		  antwort_anspannung = Integer.parseInt(antwort_5);}}//Datentyp String in Integer umwandeln
 		
 		catch (java.lang.NumberFormatException exception_5)//Falls keine Zahl eingegeben wurde oder ein Leerzeichen zwischen Zahl und Prozentzeichen angegeben ist
 		{ System.out.println("");
@@ -235,7 +236,7 @@ public class Befindlichkeitsinterview {
 			{ antwort_5 = antwort_5.replace("%", "");
 			  antwort_5 = antwort_5.toUpperCase();}
 			
-	      int antwort_anspannung = Integer.parseInt(antwort_5);//Datentyp String in Integer umwandeln
+	      antwort_anspannung = Integer.parseInt(antwort_5);//Datentyp String in Integer umwandeln
 			  
 		  while (antwort_anspannung<1|antwort_anspannung>100)//Falls die Eingabe nicht im Bereich von 1 bis 100 angegeben wurde kommt eine while-schleife
 		{ System.out.println("");
@@ -367,19 +368,60 @@ public class Befindlichkeitsinterview {
 		  System.out.println("");
 		  System.out.println("                                      [ DEINE ANGABEN ]");
 		  System.out.println("");
-		  System.out.println("                                      Name                      : "+name);
-		  System.out.println("                                      Schlafqualität            : "+antwort_3);
-		  System.out.println("                                      Stimmung                  : "+antwort_4);
-		  System.out.println("                                      Stresslevel in Prozent    : "+antwort_5);
+		  System.out.println("                                      Name                        :"+name);
+		 
+		  //If Anweisung zur Auswertung der Schlafqualität
+		  if (antwort_3<=2)
+		  { System.out.println("                                      Schlafqualität            :" +antwort_3+" von 10 (sehr schlecht)");}
+		  if (antwort_3>2&antwort_3<=4)
+		  { System.out.println("                                      Schlafqualität            :" +antwort_3+" von 10 (schlecht)");}
+		  if (antwort_3>4&antwort_3<=6)
+		  { System.out.println("                                      Schlafqualität            :" +antwort_3+" von 10 (mäßig)");}
+		  if (antwort_3>6&antwort_3<=8)
+		  { System.out.println("                                      Schlafqualität            :" +antwort_3+" von 10 (gut)");}
+		  if (antwort_3>8&antwort_3<=10)
+		  { System.out.println("                                      Schlafqualität            :" +antwort_3+" von 10 (sehr gut)");}
+		 
+		  //If Anweisung zur Auswertung der Stimmung
+		  if (antwort_4<=2)
+		  { System.out.println("                                      Stimmung                  :" +antwort_4+" von 10 (sehr schlecht)");}
+		  if (antwort_4>2&antwort_4<=4)
+		  { System.out.println("                                      Stimmung                  :" +antwort_4+" von 10 (schlecht)");}
+		  if (antwort_4>4&antwort_4<=6)
+		  { System.out.println("                                      Stimmung                  :" +antwort_4+" von 10 (mäßig)");}
+		  if (antwort_4>6&antwort_4<=8)
+		  { System.out.println("                                      Stimmung                  :" +antwort_4+" von 10 (gut)");}
+		  if (antwort_4>8&antwort_4<=10)
+		  { System.out.println("                                      Stimmung                  :" +antwort_4+" von 10 (sehr gut)");}
+		 
+		  //If Anweisung zur Auswertung Stresslevel
+		  if (antwort_anspannung<=40)
+		  { System.out.println("                                      Anspannungsniveau         :" +antwort_anspannung+"/100 % (Niedrige Anspannung)");}
+		  if (antwort_anspannung>40&antwort_anspannung<=69)
+		  { System.out.println("                                      Anspannungsniveau         :" +antwort_anspannung+"/100 % (Mäßige Anspannung)");}
+		  if (antwort_anspannung>69&antwort_anspannung<=100)
+		  { System.out.println("                                      Anspannungsniveau         :" +antwort_anspannung+"/100 % (Achtung Hochstress!)");}
+		 
 		  System.out.println("");
 		  System.out.println("");
 		  System.out.println("");
 		  System.out.println("                                      [ MEINE INFOS ]");
 		  System.out.println("");
-		  System.out.println("                                      Fakt zur Schlafqualität erhalten        : "     +antwort_fakt);
-		  System.out.println("                                      Fakt zur Stimmung erhalten              : "     +antwort_fakt_2);
-		  System.out.println("                                      Erklärung zur Anspannungskurve erhalten : "     +antwort_erklärung);
-		  System.out.println("                                      Infos zu Skills/DBT erhalten            : "     +antwort_skills);
+		  //If- else Anweisung Fakt Schlafqualität
+		  if (antwort_fakt.equalsIgnoreCase("ja"))
+		  { System.out.println("                                      Fakt zur Schlafqualität erhalten ✔️");}
+		  else
+		  { System.out.println("                                      Fakt zur Schlafqualität erhalten ❌");}
+		  // if else Anweisung Fakt Stimmung
+		  if (antwort_fakt_2.equalsIgnoreCase("ja"))
+		  { System.out.println("                                      Fakt zu Stimmung erhalten        ✔️");}
+		  else
+		  { System.out.println("                                      Fakt zur Stimmung erhalten       ❌");}
+		  // if else Infos zu Skills/DBT
+		  if (antwort_skills.equalsIgnoreCase("ja"))
+		  { System.out.println("                                      Infos zu Skills/DBT erhalten     ✔️");}
+		  else
+		  { System.out.println("                                      Infos zu Skills/DBT erhalten     ❌");}
 		  System.out.println("");
 		  System.out.println("");
 		  System.out.println("________________________________________________________________________________________________________________________________________");
