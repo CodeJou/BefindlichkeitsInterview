@@ -368,7 +368,7 @@ public class Befindlichkeitsinterview {
 		  System.out.println("");
 		  System.out.println("                                      [ DEINE ANGABEN ]");
 		  System.out.println("");
-		  System.out.println("                                      Name                        :"+name);
+		  System.out.println("                                      Name                      :"+name);
 		 
 		  //If Anweisung zur Auswertung der Schlafqualität
 		  if (antwort_3<=2)
